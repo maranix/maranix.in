@@ -1,0 +1,39 @@
+width--min {
+    width: min-content;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex__direction--col {
+    flex-direction: column;
+}
+
+.flex__direction--row {
+    flex-direction: row;
+}
+
+.justify__content--center {
+    justify-content: center;
+}
+
+.justify__content--between {
+    justify-content: space-between;
+}
+
+.align__items--center {
+    align-items: center;
+}
+
+.align__items--end {
+    align-items: end;
+}
+
+.align__self--end {
+    align-self: flex-end;
+}
+
+.margin__y--2 {
+    margin: 2rem 0;
+}
