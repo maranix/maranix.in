@@ -1,7 +1,3 @@
-width--min {
-    width: min-content;
-}
-
 .flex {
     display: flex;
 }
@@ -12,6 +8,14 @@ width--min {
 
 .flex__direction--row {
     flex-direction: row;
+}
+
+.flex__direction--col-rev {
+    flex-direction: column-reverse;
+}
+
+.flex__direction--row-rev {
+    flex-direction: row-reverse;
 }
 
 .justify__content--center {

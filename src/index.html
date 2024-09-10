@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" href="favicon.ico" />
+    <link rel="icon" href="/public/favicon.ico" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,39 +25,59 @@
         }
 
         h1 {
-            font-size: 5rem;
+            font-size: 6rem;
         }
 
         article {
             height: inherit;
         }
 
-        div {
-            font-size: 2rem;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        svg {
+        #brand-svg {
             margin: 2rem 0;
             transform: rotate(-30deg);
         }
 
-        .social-icons ul {
+        #social-svg:hover>path {
+            fill: hsl(var(--color-accent));
+        }
+
+        #social-icons-list {
             gap: 20px;
-            list-style: none;
         }
 
-        .social-icons a {
-            text-decoration: none;
-        }
-
-        .social-icons img.social-icon {
+        .social-icons svg {
             width: 2rem;
             height: 2rem;
+        }
+
+        @media screen and (min-width: 64rem) {
+            #brand {
+                transform: translateY(0.5rem);
+            }
+        }
+
+        @media screen and (max-width: 63rem) {
+            article {
+                align-items: center;
+            }
+
+            br {
+                display: none;
+            }
+
+            #brand {
+                text-align: center;
+            }
+
+            #brand-social {
+                flex-direction: column-reverse;
+                align-items: center;
+            }
+
+            #social-icons-list {
+                margin-top: 4rem;
+            }
+
         }
     </style>
 </head>
@@ -66,43 +86,54 @@
     <main id="main" class="margin__y--2">
         <article class="flex flex__direction--col justify__content--between">
             <br>
-            <header class="flex flex__direction--row justify__content--between">
-                <h1>Hello</h1>
+            <header>
+                <h1 class="font__weight--black">Hello</h1>
             </header>
-            <section class="flex flex__direction--row font-bold justify__content--between align__items--end">
+            <section id="brand-social"
+                class="flex flex__direction--row font-bold justify__content--between align__items--end">
+
                 <section class="social-icons">
-                    <ul class="flex flex__direction--row">
+                    <ul id="social-icons-list" class="flex flex__direction--row">
                         <li>
                             <a href="https://twitter.com/its_maranix" target="_blank">
-                                <img src="https://github.com/simple-icons/simple-icons/raw/develop/icons/x.svg"
-                                    alt="Twitter Icon" class="social-icon">
+                                <svg id="social-svg" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <title>X</title>
+                                    <path
+                                        d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+                                </svg>
                             </a>
                         </li>
                         <li>
                             <a href="https://linkedin.com/in/maranix" target="_blank">
-                                <img src="https://github.com/simple-icons/simple-icons/raw/develop/icons/linkedin.svg"
-                                    alt="LinkedIn Icon" class="social-icon">
+                                <svg id="social-svg" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <title>LinkedIn</title>
+                                    <path
+                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                </svg>
                             </a>
                         </li>
                         <li>
                             <a href="https://github.com/maranix" target="_blank">
-                                <img src="https://github.com/simple-icons/simple-icons/raw/develop/icons/github.svg"
-                                    alt="GitHub Icon" class="social-icon">
+                                <svg id="social-svg" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <title>GitHub</title>
+                                    <path
+                                        d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                                </svg>
                             </a>
                         </li>
                     </ul>
                 </section>
 
-                <div class="flex flex__direction--col">
-                    <svg viewBox="0 0 189 128" fill="#1E1E1E" xmlns="http://www.w3.org/2000/svg">
+                <div id="brand" class="flex flex__direction--col">
+                    <svg id="brand-svg" viewBox="0 0 189 128" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M96.0503 9.23657C94.3273 9.07993 93.008 7.63528 93.008 5.90515V5.90515C93.008 4.05768 94.5057 2.56 96.3532 2.56L121.839 2.56C124.72 2.56 127.056 4.8958 127.056 7.77716V7.77716C127.056 12.6953 133.453 15.0426 137.11 11.7538C140.045 9.11398 142.923 6.98804 145.744 5.376C151.717 1.792 157.605 0 163.408 0C173.203 0 181.109 4.19206 187.126 12.5762C189.313 15.624 188.234 19.7791 185.152 21.9177V21.9177C181.395 24.5246 176.305 23.0626 173.541 19.4199C172.1 17.521 170.599 15.997 169.04 14.848C165.968 12.4587 162.213 11.264 157.776 11.264C152.997 11.264 148.389 12.8 143.952 15.872C140.225 18.3086 135.897 22.7314 130.967 29.1404C129.049 31.6336 128.08 34.7165 128.08 37.8622V107.008C128.08 112.981 128.336 116.565 128.848 117.76C129.36 118.784 130.981 119.381 133.712 119.552L149.825 120.626C151.562 120.742 152.912 122.185 152.912 123.925V123.925C152.912 125.752 151.432 127.232 149.605 127.232H96.3532C94.5057 127.232 93.008 125.734 93.008 123.887V123.887C93.008 122.157 94.3273 120.712 96.0503 120.555L107.088 119.552C109.819 119.211 111.44 118.528 111.952 117.504C112.464 116.48 112.72 112.981 112.72 107.008V22.784C112.72 16.8107 112.464 13.312 111.952 12.288C111.44 11.0933 109.819 10.4107 107.088 10.24L96.0503 9.23657Z" />
                         <path
                             d="M107.008 118.312L5.80473 82.4793C2.32553 81.2474 0 77.957 0 74.2662V74.2662C0 70.5889 2.30873 67.3075 5.76989 66.0655L107.008 29.736C110.282 28.5234 112.608 27.5262 113.987 26.7444C114.846 26.2571 115.691 25.6469 116.138 24.7656C116.598 23.8567 116.883 22.5269 116.992 20.776L117.964 11.2535C118.139 9.53733 119.584 8.23201 121.309 8.23201V8.23201C123.166 8.23201 124.672 9.73761 124.672 11.5949V56.3252C124.672 58.1824 123.166 59.688 121.309 59.688V59.688C119.584 59.688 118.139 58.3827 117.964 56.6666L116.992 47.144C116.821 44.4133 116.224 42.8773 115.2 42.536C114.347 42.3653 111.616 43.1333 107.008 44.84L55.4996 63.1637C42.1853 67.9002 42.2088 86.7377 55.5348 91.441L107.008 109.608C109.989 110.602 112.185 111.203 113.594 111.411C114.661 111.568 115.889 111.323 116.345 110.347C116.684 109.618 116.9 108.519 116.992 107.048L117.972 97.4426C118.142 95.7735 119.548 94.504 121.226 94.504V94.504C123.099 94.504 124.59 96.0746 124.492 97.9455L123.122 124.127C123.032 125.85 121.577 127.182 119.853 127.12V127.12C118.229 127.061 116.989 125.76 116.582 124.187C116.274 123.001 115.814 122.152 115.2 121.64C114.347 120.957 111.616 119.848 107.008 118.312Z" />
                     </svg>
                     <div>
-                        <p>Software Developer</p>
-                        <p style="font-size: large;">Based in Lucknow, India</p>
+                        <p class="font__weight--bold font__size--2">Software Developer</p>
+                        <p class="font__size--large">Based in Lucknow, India</p>
                     </div>
                 </div>
             </section>

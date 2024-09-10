@@ -28,3 +28,16 @@ body {
     margin: auto;
     max-width: clamp(20rem, 70%, 80rem);
 }
+
+a {
+    color: hsl(var(--color-text));
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+path {
+    fill: hsl(var(--color-text));
+}

@@ -1,17 +1,19 @@
-.font-regular {
-    font-family: var(--font-family), var(--font-fallback);
+.font__weight--regular {
     font-weight: 400;
-    font-style: normal;
 }
 
-.font-bold {
-    font-family: var(--font-family), var(--font-fallback);
+.font__weight--bold {
     font-weight: 700;
-    font-style: normal;
 }
 
-.font-black {
-    font-family: var(--font-family), var(--font-fallback);
+.font__weight--black {
     font-weight: 900;
-    font-style: normal;
+}
+
+.font__size--2 {
+    font-size: 2rem;
+}
+
+.font__size--large {
+    font-size: large;
 }
