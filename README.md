@@ -25,12 +25,12 @@ maranix.in
 
 ### Module Responsibilities
 
-| Path          | Module           | Purpose                                                |
-| :------------ | :--------------- | :----------------------------------------------------- |
-| `/`           | `apps/website`   | Landing page, biography, and primary navigation links. |
-| `/blog/*`     | `apps/blog`      | Articles, technical notes, and long-form content.      |
-| `/projects/*` | `apps/projects`  | Interactive applications and project demonstrations.   |
-| Shared        | `packages/utils` | Shared TypeScript helper functions and utilities.      |
+| Path          | Module            | Purpose                                                |
+| :------------ | :---------------- | :----------------------------------------------------- |
+| `/`           | `apps/website`    | Landing page, biography, and primary navigation links. |
+| `/blog/*`     | `apps/blog`       | Articles, technical notes, and long-form content.      |
+| `/projects/*` | `apps/projects`   | Interactive applications and project demonstrations.   |
+| Shared        | `packages/styles` | Shared CSS reset, design tokens, and base styling.     |
 
 ---
 
@@ -53,7 +53,7 @@ maranix.in/
 ├── apps/
 │   └── website/          # Static landing page
 ├── packages/
-│   └── utils/            # Shared TypeScript utilities
+│   └── styles/           # Shared CSS tokens, reset, and base styles
 ├── pnpm-workspace.yaml   # Monorepo workspace configuration
 ├── package.json          # Root scripts and dev dependencies
 ├── vite.config.ts        # Global Vite+ lint and format configuration

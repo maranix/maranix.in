@@ -10,4 +10,7 @@ export default defineConfig({
   run: {
     cache: true,
   },
+  test: {
+    passWithNoTests: true,
+  },
 });
