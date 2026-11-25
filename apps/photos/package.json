@@ -1,0 +1,22 @@
+{
+  "name": "photos",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vp dev",
+    "build": "vp build",
+    "preview": "vp preview"
+  },
+  "dependencies": {
+    "@solidjs/web": "^2.0.4",
+    "solid-js": "^2.0.4"
+  },
+  "devDependencies": {
+    "@maranix/styles": "workspace:*",
+    "@solidjs/vite-plugin": "^3.0.1",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vite-plus": "catalog:"
+  }
+}

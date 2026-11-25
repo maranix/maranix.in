@@ -17,3 +17,7 @@ peerDependencyRules:
     - vite
   allowedVersions:
     vite: "*"
+minimumReleaseAgeExclude:
+  - "@solidjs/signals@2.0.4"
+  - "@solidjs/web@2.0.4"
+  - solid-js@2.0.4

@@ -1,3 +1,11 @@
+# Repository Architecture
+
+This is a monorepo of modular micro-frontends and personal showcase websites for `maranix.in`. Each app in `apps/` is an independent website or experiment that may use its own framework, while `packages/` holds shared libraries and design tokens.
+
+- `apps/` — Independent micro-frontends and websites (e.g. `apps/website` is the personal portfolio and landing page).
+- `packages/` — Shared internal packages (e.g. `@maranix/styles`).
+- `tools/` — Workspace tooling and scripts.
+
 <!--VITE PLUS START-->
 
 # Using Vite+, the Unified Toolchain for the Web
