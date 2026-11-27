@@ -1,8 +1,9 @@
-import { createMemo, createSignal } from "solid-js";
+import { createEffect, createMemo, createSignal, onCleanup } from "solid-js";
 import { DynamicGrid } from "./components/DynamicGrid";
 import { Lightbox } from "./components/Lightbox";
 import { WaterWheel } from "./components/WaterWheel";
 import {
+  findPhotoById,
   getMonthsForYear,
   getPhotosForBucket,
   getYearsWithPhotos,
@@ -24,17 +25,70 @@ function getInitialTheme(): ThemeId {
   return "darkroom";
 }
 
+function parseUrlState(years: number[]) {
+  const currentYear = new Date().getFullYear();
+  const fallbackYear = years.includes(currentYear) ? currentYear : years[years.length - 1];
+  const params = new URLSearchParams(window.location.search);
+
+  const photoParam = params.get("photo");
+  if (photoParam) {
+    const matched = findPhotoById(photoParam);
+    if (matched) {
+      return { year: matched.year, month: matched.month, photoId: matched.id };
+    }
+  }
+
+  const yearParam = Number(params.get("year"));
+  const year = years.includes(yearParam) ? yearParam : fallbackYear;
+  const months = getMonthsForYear(year);
+  const monthParam = Number(params.get("month")) - 1;
+  const month = months.includes(monthParam) ? monthParam : months[months.length - 1];
+
+  return { year, month, photoId: null as string | null };
+}
+
+function buildUrl(year: number, month: number, photoId: string | null): string {
+  const params = new URLSearchParams();
+  params.set("year", String(year));
+  params.set("month", String(month + 1));
+  if (photoId) params.set("photo", photoId);
+  return `${window.location.pathname}?${params.toString()}`;
+}
+
 export function App() {
   // Ordered oldest -> newest so the active/latest year sits at center and earlier years extend upward
   const years = [...getYearsWithPhotos()].sort((a, b) => a - b);
-  const currentYear = new Date().getFullYear();
-  const initialYear = years.includes(currentYear) ? currentYear : years[years.length - 1];
-  const initialMonths = getMonthsForYear(initialYear);
+  const initial = parseUrlState(years);
 
-  const [selectedYear, setSelectedYear] = createSignal(initialYear);
-  const [selectedMonth, setSelectedMonth] = createSignal(initialMonths[initialMonths.length - 1]);
+  const [selectedYear, setSelectedYear] = createSignal(initial.year);
+  const [selectedMonth, setSelectedMonth] = createSignal(initial.month);
   const [theme, setTheme] = createSignal<ThemeId>(getInitialTheme());
-  const [lightboxPhotoId, setLightboxPhotoId] = createSignal<string | null>(null);
+  const [lightboxPhotoId, setLightboxPhotoId] = createSignal<string | null>(initial.photoId);
+
+  createEffect(
+    () => [selectedYear(), selectedMonth(), lightboxPhotoId()] as const,
+    ([year, month, photoId], prev) => {
+      const nextUrl = buildUrl(year, month, photoId);
+      const currentUrl = `${window.location.pathname}${window.location.search}`;
+      if (nextUrl === currentUrl) return;
+
+      const lightboxToggled = prev && Boolean(prev[2]) !== Boolean(photoId);
+      if (lightboxToggled) {
+        window.history.pushState(null, "", nextUrl);
+      } else {
+        window.history.replaceState(null, "", nextUrl);
+      }
+    },
+  );
+
+  const handlePopState = () => {
+    const next = parseUrlState(years);
+    setSelectedYear(next.year);
+    setSelectedMonth(next.month);
+    setLightboxPhotoId(next.photoId);
+  };
+  window.addEventListener("popstate", handlePopState);
+  onCleanup(() => window.removeEventListener("popstate", handlePopState));
 
   const selectTheme = (next: ThemeId) => {
     setTheme(next);
@@ -119,6 +173,7 @@ export function App() {
 
       <Lightbox
         photo={lightboxPhoto()}
+        previewWidth={activePhotos().length === 1 ? 960 : 480}
         hasPrev={lightboxIndex() > 0}
         hasNext={lightboxIndex() >= 0 && lightboxIndex() < activePhotos().length - 1}
         onClose={() => setLightboxPhotoId(null)}

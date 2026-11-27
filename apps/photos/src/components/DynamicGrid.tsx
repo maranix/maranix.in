@@ -1,5 +1,5 @@
 import { createEffect, createMemo, createSignal, For, onSettled } from "solid-js";
-import type { PhotoItem } from "../data/photos";
+import { getPreviewUrl, type PhotoItem } from "../data/photos";
 
 interface DynamicGridProps {
   bucketKey: string;
@@ -88,18 +88,18 @@ export function DynamicGrid(props: DynamicGridProps) {
                   ref={(el) => animateTile(el, idx())}
                   type="button"
                   class="photo-tile"
-                  style={
-                    props.photos.length > 1
-                      ? { "aspect-ratio": String(photo.aspectRatio) }
-                      : undefined
-                  }
+                  style={{
+                    "aspect-ratio": String(photo.aspectRatio),
+                    "--tile-ratio": String(photo.aspectRatio),
+                  }}
                   aria-label={`Open photo from ${photo.capturedAt}`}
                   onClick={() => props.onOpenLightbox(photo)}
                 >
                   <img
-                    src={photo.src}
-                    alt={`Captured in ${photo.location} (${photo.capturedAt})`}
-                    decoding="sync"
+                    src={getPreviewUrl(photo.src, props.photos.length === 1 ? 960 : 480)}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
                   />
                 </button>
               )}

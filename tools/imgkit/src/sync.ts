@@ -59,7 +59,16 @@ try {
 
     if (prev?.src && !dryRun) {
       console.log(`[skip] ${file}`);
-      entry = prev;
+      const { stdout } = await execFileAsync("sips", [
+        "-g",
+        "pixelWidth",
+        "-g",
+        "pixelHeight",
+        fullPath,
+      ]);
+      const w = Number(stdout.match(/pixelWidth:\s*(\d+)/)?.[1] ?? 4);
+      const h = Number(stdout.match(/pixelHeight:\s*(\d+)/)?.[1] ?? 3);
+      entry = { ...prev, aspectRatio: Number((w / h).toFixed(3)) };
       const d = new Date(typeof prev.capturedAt === "string" ? prev.capturedAt : "");
       year = d.getFullYear();
       month = d.getMonth();
@@ -72,13 +81,15 @@ try {
       year = date.getFullYear();
       month = date.getMonth();
 
-      let w = Number(exif.ExifImageWidth || 4);
-      let h = Number(exif.ExifImageHeight || 3);
-      const isRotated =
-        typeof exif.Orientation === "string"
-          ? /90|270/.test(exif.Orientation)
-          : exif.Orientation >= 5 && exif.Orientation <= 8;
-      if (isRotated) [w, h] = [h, w];
+      const { stdout } = await execFileAsync("sips", [
+        "-g",
+        "pixelWidth",
+        "-g",
+        "pixelHeight",
+        fullPath,
+      ]);
+      const w = Number(stdout.match(/pixelWidth:\s*(\d+)/)?.[1] ?? exif.ExifImageWidth ?? 4);
+      const h = Number(stdout.match(/pixelHeight:\s*(\d+)/)?.[1] ?? exif.ExifImageHeight ?? 3);
 
       const focal = exif.FocalLengthIn35mmFormat ?? exif.FocalLength;
       const shutter =

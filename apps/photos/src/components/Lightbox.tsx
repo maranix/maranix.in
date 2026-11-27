@@ -1,8 +1,9 @@
-import { onSettled, Show } from "solid-js";
-import type { PhotoItem } from "../data/photos";
+import { createEffect, createSignal, onCleanup, onSettled, Show } from "solid-js";
+import { getFullUrl, getPreviewUrl, type PhotoItem } from "../data/photos";
 
 interface LightboxProps {
   photo: PhotoItem | null;
+  previewWidth?: number;
   hasPrev: boolean;
   hasNext: boolean;
   onClose: () => void;
@@ -11,6 +12,29 @@ interface LightboxProps {
 }
 
 export function Lightbox(props: LightboxProps) {
+  const [loadedFullId, setLoadedFullId] = createSignal<string | null>(null);
+
+  createEffect(
+    () => props.photo,
+    (photo) => {
+      setLoadedFullId(null);
+      if (!photo) return;
+
+      let cancelled = false;
+      const fullUrl = getFullUrl(photo.src);
+      const preloader = new Image();
+
+      preloader.onload = () => {
+        if (!cancelled) setLoadedFullId(photo.id);
+      };
+      preloader.src = fullUrl;
+
+      onCleanup(() => {
+        cancelled = true;
+      });
+    },
+  );
+
   onSettled(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!props.photo) return;
@@ -54,25 +78,42 @@ export function Lightbox(props: LightboxProps) {
           </button>
 
           <figure class="lightbox__stage">
-            <img src={photo().src} alt={`${photo().location} — ${photo().capturedAt}`} />
+            <img
+              src={
+                loadedFullId() === photo().id
+                  ? getFullUrl(photo().src)
+                  : getPreviewUrl(photo().src, props.previewWidth)
+              }
+              alt={
+                photo().location
+                  ? `${photo().location} — ${photo().capturedAt}`
+                  : `Photo from ${photo().capturedAt}`
+              }
+            />
             <figcaption class="lightbox__exif">
               <span>{photo().capturedAt}</span>
-              <span class="lightbox__dot" aria-hidden="true">
-                ·
-              </span>
-              <span>{photo().location}</span>
+              <Show when={photo().location}>
+                <span class="lightbox__dot" aria-hidden="true">
+                  ·
+                </span>
+                <span>{photo().location}</span>
+              </Show>
               <span class="lightbox__dot" aria-hidden="true">
                 ·
               </span>
               <span>{photo().camera}</span>
-              <span class="lightbox__dot" aria-hidden="true">
-                ·
-              </span>
-              <span>{photo().lens}</span>
-              <span class="lightbox__dot" aria-hidden="true">
-                ·
-              </span>
-              <span>{photo().settings}</span>
+              <Show when={photo().lens}>
+                <span class="lightbox__dot" aria-hidden="true">
+                  ·
+                </span>
+                <span>{photo().lens}</span>
+              </Show>
+              <Show when={photo().settings}>
+                <span class="lightbox__dot" aria-hidden="true">
+                  ·
+                </span>
+                <span>{photo().settings}</span>
+              </Show>
             </figcaption>
           </figure>
 
