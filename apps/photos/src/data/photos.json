@@ -1,0 +1,174 @@
+{
+  "photos": {
+    "2025": {
+      "6": [
+        {
+          "id": "img_0160",
+          "src": "https://ik.imagekit.io/maranix/photos/2025/07/img_0160.heic",
+          "aspectRatio": 1.333,
+          "camera": "Apple iPhone 15",
+          "lens": "iPhone 15 back dual wide camera 5.96mm f/1.6",
+          "settings": "26mm · f/1.6 · 1/666s · ISO 50",
+          "location": "",
+          "capturedAt": "2025-07-06"
+        },
+        {
+          "id": "img_0162",
+          "src": "https://ik.imagekit.io/maranix/photos/2025/07/img_0162.heic",
+          "aspectRatio": 1.333,
+          "camera": "Apple iPhone 15",
+          "lens": "iPhone 15 back dual wide camera 5.96mm f/1.6",
+          "settings": "26mm · f/1.6 · 1/1783s · ISO 50",
+          "location": "",
+          "capturedAt": "2025-07-06"
+        },
+        {
+          "id": "img_0186",
+          "src": "https://ik.imagekit.io/maranix/photos/2025/07/img_0186.heic",
+          "aspectRatio": 1.333,
+          "camera": "Apple iPhone 15",
+          "lens": "iPhone 15 back dual wide camera 5.96mm f/1.6",
+          "settings": "26mm · f/1.6 · 1/121s · ISO 40",
+          "location": "",
+          "capturedAt": "2025-07-13"
+        }
+      ],
+      "9": [
+        {
+          "id": "img_0400",
+          "src": "https://ik.imagekit.io/maranix/photos/2025/10/img_0400.heic",
+          "aspectRatio": 1.333,
+          "camera": "Apple iPhone 15",
+          "lens": "iPhone 15 back dual wide camera 5.96mm f/1.6",
+          "settings": "52mm · f/1.6 · 1/17s · ISO 1250",
+          "location": "",
+          "capturedAt": "2025-10-17"
+        },
+        {
+          "id": "img_0469",
+          "src": "https://ik.imagekit.io/maranix/photos/2025/10/img_0469.heic",
+          "aspectRatio": 1.333,
+          "camera": "Apple iPhone 15",
+          "lens": "iPhone 15 back dual wide camera 5.96mm f/1.6",
+          "settings": "93mm · f/1.6 · 1/50s · ISO 40",
+          "location": "",
+          "capturedAt": "2025-10-19"
+        }
+      ],
+      "11": [
+        {
+          "id": "img_0936",
+          "src": "https://ik.imagekit.io/maranix/photos/2025/12/img_0936.heic",
+          "aspectRatio": 1.333,
+          "camera": "Apple iPhone 15",
+          "lens": "iPhone 15 back dual wide camera 5.96mm f/1.6",
+          "settings": "26mm · f/1.6 · 1/6329s · ISO 40",
+          "location": "",
+          "capturedAt": "2025-12-09"
+        }
+      ]
+    },
+    "2026": {
+      "0": [
+        {
+          "id": "img_0970",
+          "src": "https://ik.imagekit.io/maranix/photos/2026/01/img_0970.heic",
+          "aspectRatio": 1.333,
+          "camera": "Apple iPhone 15",
+          "lens": "iPhone 15 back dual wide camera 1.54mm f/2.4",
+          "settings": "13mm · f/2.4 · 1/1980s · ISO 25",
+          "location": "",
+          "capturedAt": "2026-01-08"
+        },
+        {
+          "id": "img_0974",
+          "src": "https://ik.imagekit.io/maranix/photos/2026/01/img_0974.heic",
+          "aspectRatio": 1.333,
+          "camera": "Apple iPhone 15",
+          "lens": "iPhone 15 back dual wide camera 5.96mm f/1.6",
+          "settings": "135mm · f/1.6 · 1/5348s · ISO 40",
+          "location": "",
+          "capturedAt": "2026-01-08"
+        },
+        {
+          "id": "img_0978",
+          "src": "https://ik.imagekit.io/maranix/photos/2026/01/img_0978.heic",
+          "aspectRatio": 1.333,
+          "camera": "Apple iPhone 15",
+          "lens": "iPhone 15 back dual wide camera 5.96mm f/1.6",
+          "settings": "26mm · f/1.6 · 1/4630s · ISO 50",
+          "location": "",
+          "capturedAt": "2026-01-08"
+        },
+        {
+          "id": "img_0980",
+          "src": "https://ik.imagekit.io/maranix/photos/2026/01/img_0980.heic",
+          "aspectRatio": 1.333,
+          "camera": "Apple iPhone 15",
+          "lens": "iPhone 15 back dual wide camera 5.96mm f/1.6",
+          "settings": "52mm · f/1.6 · 1/3663s · ISO 40",
+          "location": "",
+          "capturedAt": "2026-01-08"
+        },
+        {
+          "id": "img_1024",
+          "src": "https://ik.imagekit.io/maranix/photos/2026/01/img_1024.heic",
+          "aspectRatio": 1.333,
+          "camera": "Apple iPhone 15",
+          "lens": "iPhone 15 back dual wide camera 5.96mm f/1.6",
+          "settings": "125mm · f/1.6 · 1/1139s · ISO 32",
+          "location": "",
+          "capturedAt": "2026-01-29"
+        }
+      ],
+      "6": [
+        {
+          "id": "img_1538",
+          "src": "https://ik.imagekit.io/maranix/photos/2026/07/img_1538.heic",
+          "aspectRatio": 1.333,
+          "camera": "Apple iPhone 15",
+          "lens": "iPhone 15 back dual wide camera 5.96mm f/1.6",
+          "settings": "52mm · f/1.6 · 1/8333s · ISO 25",
+          "location": "",
+          "capturedAt": "2026-07-22"
+        }
+      ],
+      "8": [
+        {
+          "id": "img_1623",
+          "src": "https://ik.imagekit.io/maranix/photos/2026/09/img_1623.heic",
+          "aspectRatio": 1.333,
+          "camera": "Apple iPhone 15",
+          "lens": "iPhone 15 back dual wide camera 5.96mm f/1.6",
+          "settings": "26mm · f/1.6 · 1/9901s · ISO 40",
+          "location": "",
+          "capturedAt": "2026-09-28"
+        }
+      ],
+      "9": [
+        {
+          "id": "img_1731",
+          "src": "https://ik.imagekit.io/maranix/photos/2026/10/img_1731.heic",
+          "aspectRatio": 1.333,
+          "camera": "Apple iPhone 15",
+          "lens": "iPhone 15 back dual wide camera 5.96mm f/1.6",
+          "settings": "52mm · f/1.6 · 1/239s · ISO 32",
+          "location": "",
+          "capturedAt": "2026-10-11"
+        }
+      ],
+      "10": [
+        {
+          "id": "img_1846",
+          "src": "https://ik.imagekit.io/maranix/photos/2026/11/img_1846.heic",
+          "aspectRatio": 1.333,
+          "camera": "Apple iPhone 15",
+          "lens": "iPhone 15 back dual wide camera 5.96mm f/1.6",
+          "settings": "26mm · f/1.6 · 1/2024s · ISO 50",
+          "location": "",
+          "capturedAt": "2026-11-13"
+        }
+      ]
+    }
+  }
+}
